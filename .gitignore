@@ -1,0 +1,26 @@
+# Python caches and local tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Temporary and generated model artifacts
+*.tmp
+*.temp
+*.log
+models/
+artifacts/
+checkpoints/
+*.pkl
+*.joblib
+*.h5
+*.onnx
+
+# Keep the small, versioned synthetic CSV datasets in data/raw.
+
+# Large external Computer Vision dataset files; retain its documentation and manifest.
+/data/external/disaster_images/*
+!/data/external/disaster_images/README.md
+!/data/external/disaster_images/metadata.csv
+!/data/external/disaster_images/corrupted_images.csv

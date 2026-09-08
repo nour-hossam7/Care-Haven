@@ -1,0 +1,101 @@
+donor_id,preferred_category,budget,preferred_location,urgency_preference,previous_donations
+DONOR-001,Food,46021.45,Egypt - Giza,High,17
+DONOR-002,Medical Aid,37273.31,Egypt - Giza,High,24
+DONOR-003,Food,26894.91,Lebanon - Beirut,Critical,10
+DONOR-004,Food,18737.91,Egypt - Giza,Critical,26
+DONOR-005,Medical Aid,58048.79,Jordan - Irbid,Medium,17
+DONOR-006,Education,34374.54,Tunisia - Tunis,High,19
+DONOR-007,Education,18480.97,Jordan - Amman,High,2
+DONOR-008,Emergency Housing,27469.60,Egypt - Alexandria,Medium,10
+DONOR-009,Emergency Housing,52745.79,Lebanon - Beirut,Medium,13
+DONOR-010,Water,29583.00,Tunisia - Tunis,Medium,0
+DONOR-011,Medical Aid,47436.47,Tunisia - Tunis,Critical,19
+DONOR-012,Water,39669.23,Egypt - Giza,High,9
+DONOR-013,Emergency Housing,31866.23,Egypt - Giza,High,16
+DONOR-014,Food,23829.11,Tunisia - Tunis,High,28
+DONOR-015,Clothing,47919.33,Jordan - Amman,High,21
+DONOR-016,Clothing,34921.99,Egypt - Alexandria,Critical,4
+DONOR-017,Food,18408.44,Jordan - Amman,High,22
+DONOR-018,Water,57160.60,Jordan - Irbid,High,28
+DONOR-019,Education,41001.47,Egypt - Alexandria,High,5
+DONOR-020,Emergency Housing,19055.21,Egypt - Giza,Critical,7
+DONOR-021,Food,43439.24,Egypt - Giza,Critical,18
+DONOR-022,Clothing,58107.58,Egypt - Cairo,High,15
+DONOR-023,Food,51683.75,Lebanon - Beirut,High,19
+DONOR-024,Emergency Housing,39362.91,Jordan - Amman,Medium,19
+DONOR-025,Water,27484.76,Egypt - Aswan,Medium,8
+DONOR-026,Food,35498.21,Egypt - Aswan,Critical,9
+DONOR-027,Emergency Housing,21721.92,Lebanon - Beirut,Medium,0
+DONOR-028,Water,47225.28,Egypt - Giza,Low,28
+DONOR-029,Water,34449.53,Egypt - Alexandria,High,9
+DONOR-030,Emergency Housing,55359.03,Egypt - Cairo,Critical,12
+DONOR-031,Emergency Housing,48551.55,Jordan - Irbid,Medium,10
+DONOR-032,Education,57875.09,Jordan - Amman,Low,0
+DONOR-033,Emergency Housing,35904.58,Jordan - Irbid,High,7
+DONOR-034,Clothing,55693.20,Egypt - Giza,High,15
+DONOR-035,Education,33115.03,Egypt - Cairo,High,13
+DONOR-036,Clothing,57941.33,Egypt - Aswan,High,8
+DONOR-037,Education,51564.83,Jordan - Irbid,High,10
+DONOR-038,Emergency Housing,37874.42,Tunisia - Tunis,Medium,25
+DONOR-039,Education,57522.07,Lebanon - Beirut,Medium,1
+DONOR-040,Medical Aid,59226.85,Egypt - Cairo,High,10
+DONOR-041,Education,38292.65,Egypt - Alexandria,High,25
+DONOR-042,Water,30100.27,Tunisia - Tunis,High,23
+DONOR-043,Food,44497.12,Egypt - Aswan,Critical,0
+DONOR-044,Medical Aid,20442.75,Egypt - Cairo,Critical,12
+DONOR-045,Food,21071.39,Lebanon - Beirut,High,2
+DONOR-046,Education,58327.62,Egypt - Alexandria,High,14
+DONOR-047,Food,59153.54,Jordan - Amman,Medium,12
+DONOR-048,Food,56696.72,Egypt - Alexandria,High,4
+DONOR-049,Medical Aid,42185.56,Lebanon - Beirut,High,3
+DONOR-050,Clothing,37436.58,Jordan - Amman,Critical,9
+DONOR-051,Food,25494.61,Lebanon - Beirut,Medium,0
+DONOR-052,Clothing,56236.46,Egypt - Cairo,High,10
+DONOR-053,Medical Aid,18264.30,Tunisia - Tunis,High,28
+DONOR-054,Emergency Housing,20503.75,Tunisia - Tunis,High,3
+DONOR-055,Emergency Housing,35638.03,Lebanon - Beirut,Critical,24
+DONOR-056,Food,47193.43,Egypt - Alexandria,Critical,4
+DONOR-057,Water,24474.28,Egypt - Giza,High,5
+DONOR-058,Clothing,43577.68,Egypt - Cairo,Medium,27
+DONOR-059,Emergency Housing,59022.65,Egypt - Giza,Critical,22
+DONOR-060,Clothing,36066.13,Egypt - Cairo,Medium,24
+DONOR-061,Water,56540.85,Egypt - Giza,High,12
+DONOR-062,Clothing,45497.60,Tunisia - Tunis,High,20
+DONOR-063,Water,57339.80,Lebanon - Beirut,High,9
+DONOR-064,Water,52962.47,Egypt - Cairo,High,15
+DONOR-065,Water,52120.59,Egypt - Aswan,High,20
+DONOR-066,Education,30116.38,Egypt - Aswan,High,0
+DONOR-067,Emergency Housing,45687.12,Jordan - Amman,High,6
+DONOR-068,Clothing,26547.85,Jordan - Irbid,Critical,18
+DONOR-069,Medical Aid,49846.95,Egypt - Aswan,Medium,14
+DONOR-070,Medical Aid,20338.27,Egypt - Giza,High,12
+DONOR-071,Clothing,38539.69,Egypt - Cairo,Critical,1
+DONOR-072,Clothing,29470.00,Egypt - Cairo,Medium,24
+DONOR-073,Medical Aid,56805.32,Egypt - Aswan,Critical,0
+DONOR-074,Education,32509.94,Jordan - Irbid,Critical,24
+DONOR-075,Education,40627.95,Egypt - Giza,High,7
+DONOR-076,Food,47600.67,Jordan - Amman,Medium,12
+DONOR-077,Emergency Housing,46503.06,Tunisia - Tunis,Medium,23
+DONOR-078,Emergency Housing,54018.96,Egypt - Giza,High,5
+DONOR-079,Medical Aid,41055.28,Egypt - Cairo,High,17
+DONOR-080,Medical Aid,24120.50,Egypt - Giza,Medium,10
+DONOR-081,Food,47644.41,Egypt - Giza,High,22
+DONOR-082,Emergency Housing,49590.59,Egypt - Cairo,Medium,19
+DONOR-083,Emergency Housing,49754.39,Egypt - Alexandria,Medium,2
+DONOR-084,Clothing,58128.25,Jordan - Irbid,High,13
+DONOR-085,Water,48696.49,Jordan - Amman,High,28
+DONOR-086,Food,57098.67,Egypt - Cairo,High,17
+DONOR-087,Food,32832.07,Egypt - Cairo,Critical,11
+DONOR-088,Food,28226.23,Lebanon - Beirut,Critical,19
+DONOR-089,Food,19211.88,Egypt - Cairo,High,15
+DONOR-090,Clothing,24426.39,Lebanon - Beirut,Medium,15
+DONOR-091,Food,26736.62,Jordan - Amman,Critical,0
+DONOR-092,Food,34404.79,Jordan - Amman,Medium,7
+DONOR-093,Emergency Housing,48051.43,Egypt - Alexandria,Critical,22
+DONOR-094,Food,33877.47,Jordan - Irbid,High,0
+DONOR-095,Water,22491.86,Lebanon - Beirut,High,25
+DONOR-096,Medical Aid,37765.13,Tunisia - Tunis,High,12
+DONOR-097,Medical Aid,37925.38,Lebanon - Beirut,Low,9
+DONOR-098,Education,18382.42,Egypt - Alexandria,Medium,15
+DONOR-099,Medical Aid,50961.97,Egypt - Giza,Low,8
+DONOR-100,Clothing,32755.02,Egypt - Alexandria,Low,25

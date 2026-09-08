@@ -1,0 +1,51 @@
+evidence_id,case_id,evidence_type,file_path,source_type,uploaded_at,description,verification_status
+EVIDENCE-0001,CASE-0001,image,data/raw/images/synthetic/demo_case_evidence/CASE-0001_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated damage scene for linkage testing,unreviewed
+EVIDENCE-0002,CASE-0001,supporting_document,data/raw/documents/case_evidence/synthetic_case_support_CASE-0001.txt,synthetic_demo,2026-09-09,Synthetic case-support note for linkage testing,unreviewed
+EVIDENCE-0003,CASE-0002,image,data/raw/images/synthetic/demo_case_evidence/CASE-0002_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated flood scene for linkage testing,unreviewed
+EVIDENCE-0004,CASE-0002,supporting_document,data/raw/documents/case_evidence/synthetic_case_support_CASE-0002.txt,synthetic_demo,2026-09-09,Synthetic incident note for linkage testing,unreviewed
+EVIDENCE-0005,CASE-0003,image,data/raw/images/synthetic/demo_case_evidence/CASE-0003_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated fire scene for linkage testing,unreviewed
+EVIDENCE-0006,CASE-0003,supporting_document,data/raw/documents/case_evidence/synthetic_case_support_CASE-0003.txt,synthetic_demo,2026-09-09,Synthetic assistance request for linkage testing,unreviewed
+EVIDENCE-0007,CASE-0004,image,data/raw/images/synthetic/demo_case_evidence/CASE-0004_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated infrastructure scene for linkage testing,unreviewed
+EVIDENCE-0008,CASE-0004,supporting_document,data/raw/documents/case_evidence/synthetic_case_support_CASE-0004.txt,synthetic_demo,2026-09-09,Synthetic case-support note for linkage testing,unreviewed
+EVIDENCE-0009,CASE-0005,image,data/raw/images/synthetic/demo_case_evidence/CASE-0005_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated debris scene for linkage testing,unreviewed
+EVIDENCE-0010,CASE-0005,supporting_document,data/raw/documents/case_evidence/synthetic_case_support_CASE-0005.txt,synthetic_demo,2026-09-09,Synthetic incident note for linkage testing,unreviewed
+EVIDENCE-0011,CASE-0006,image,data/raw/images/synthetic/demo_case_evidence/CASE-0006_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated shelter scene for linkage testing,unreviewed
+EVIDENCE-0012,CASE-0006,supporting_document,data/raw/documents/case_evidence/synthetic_case_support_CASE-0006.txt,synthetic_demo,2026-09-09,Synthetic assistance request for linkage testing,unreviewed
+EVIDENCE-0013,CASE-0007,image,data/raw/images/synthetic/demo_case_evidence/CASE-0007_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated road scene for linkage testing,unreviewed
+EVIDENCE-0014,CASE-0007,supporting_document,data/raw/documents/case_evidence/synthetic_case_support_CASE-0007.txt,synthetic_demo,2026-09-09,Synthetic case-support note for linkage testing,unreviewed
+EVIDENCE-0015,CASE-0008,image,data/raw/images/synthetic/demo_case_evidence/CASE-0008_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated water-damage scene for linkage testing,unreviewed
+EVIDENCE-0016,CASE-0008,supporting_document,data/raw/documents/case_evidence/synthetic_case_support_CASE-0008.txt,synthetic_demo,2026-09-09,Synthetic incident note for linkage testing,unreviewed
+EVIDENCE-0017,CASE-0009,image,data/raw/images/synthetic/demo_case_evidence/CASE-0009_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated assistance scene for linkage testing,unreviewed
+EVIDENCE-0018,CASE-0009,supporting_document,data/raw/documents/case_evidence/synthetic_case_support_CASE-0009.txt,synthetic_demo,2026-09-09,Synthetic assistance request for linkage testing,unreviewed
+EVIDENCE-0019,CASE-0010,image,data/raw/images/synthetic/demo_case_evidence/CASE-0010_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated scene for linkage testing,unreviewed
+EVIDENCE-0020,CASE-0010,supporting_document,data/raw/documents/case_evidence/synthetic_case_support_CASE-0010.txt,synthetic_demo,2026-09-09,Synthetic case-support note for linkage testing,unreviewed
+EVIDENCE-0021,CASE-0011,image,data/raw/images/synthetic/demo_case_evidence/CASE-0011_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated shelter scene for linkage testing,unreviewed
+EVIDENCE-0022,CASE-0012,image,data/raw/images/synthetic/demo_case_evidence/CASE-0012_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated flood scene for linkage testing,unreviewed
+EVIDENCE-0023,CASE-0013,image,data/raw/images/synthetic/demo_case_evidence/CASE-0013_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated fire scene for linkage testing,unreviewed
+EVIDENCE-0024,CASE-0014,image,data/raw/images/synthetic/demo_case_evidence/CASE-0014_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated infrastructure scene for linkage testing,unreviewed
+EVIDENCE-0025,CASE-0015,image,data/raw/images/synthetic/demo_case_evidence/CASE-0015_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated debris scene for linkage testing,unreviewed
+EVIDENCE-0026,CASE-0016,image,data/raw/images/synthetic/demo_case_evidence/CASE-0016_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated shelter scene for linkage testing,unreviewed
+EVIDENCE-0027,CASE-0017,image,data/raw/images/synthetic/demo_case_evidence/CASE-0017_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated road scene for linkage testing,unreviewed
+EVIDENCE-0028,CASE-0018,image,data/raw/images/synthetic/demo_case_evidence/CASE-0018_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated water-damage scene for linkage testing,unreviewed
+EVIDENCE-0029,CASE-0019,image,data/raw/images/synthetic/demo_case_evidence/CASE-0019_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated assistance scene for linkage testing,unreviewed
+EVIDENCE-0030,CASE-0020,image,data/raw/images/synthetic/demo_case_evidence/CASE-0020_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated scene for linkage testing,unreviewed
+EVIDENCE-0031,CASE-0021,image,data/raw/images/synthetic/demo_case_evidence/CASE-0021_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated shelter scene for linkage testing,unreviewed
+EVIDENCE-0032,CASE-0022,image,data/raw/images/synthetic/demo_case_evidence/CASE-0022_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated flood scene for linkage testing,unreviewed
+EVIDENCE-0033,CASE-0023,image,data/raw/images/synthetic/demo_case_evidence/CASE-0023_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated fire scene for linkage testing,unreviewed
+EVIDENCE-0034,CASE-0024,image,data/raw/images/synthetic/demo_case_evidence/CASE-0024_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated infrastructure scene for linkage testing,unreviewed
+EVIDENCE-0035,CASE-0025,image,data/raw/images/synthetic/demo_case_evidence/CASE-0025_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated debris scene for linkage testing,unreviewed
+EVIDENCE-0036,CASE-0026,image,data/raw/images/synthetic/demo_case_evidence/CASE-0026_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated shelter scene for linkage testing,unreviewed
+EVIDENCE-0037,CASE-0027,image,data/raw/images/synthetic/demo_case_evidence/CASE-0027_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated road scene for linkage testing,unreviewed
+EVIDENCE-0038,CASE-0028,image,data/raw/images/synthetic/demo_case_evidence/CASE-0028_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated water-damage scene for linkage testing,unreviewed
+EVIDENCE-0039,CASE-0029,image,data/raw/images/synthetic/demo_case_evidence/CASE-0029_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated assistance scene for linkage testing,unreviewed
+EVIDENCE-0040,CASE-0030,image,data/raw/images/synthetic/demo_case_evidence/CASE-0030_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated scene for linkage testing,unreviewed
+EVIDENCE-0041,CASE-0031,image,data/raw/images/synthetic/demo_case_evidence/CASE-0031_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated shelter scene for linkage testing,unreviewed
+EVIDENCE-0042,CASE-0032,image,data/raw/images/synthetic/demo_case_evidence/CASE-0032_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated flood scene for linkage testing,unreviewed
+EVIDENCE-0043,CASE-0033,image,data/raw/images/synthetic/demo_case_evidence/CASE-0033_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated fire scene for linkage testing,unreviewed
+EVIDENCE-0044,CASE-0034,image,data/raw/images/synthetic/demo_case_evidence/CASE-0034_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated infrastructure scene for linkage testing,unreviewed
+EVIDENCE-0045,CASE-0035,image,data/raw/images/synthetic/demo_case_evidence/CASE-0035_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated debris scene for linkage testing,unreviewed
+EVIDENCE-0046,CASE-0036,image,data/raw/images/synthetic/demo_case_evidence/CASE-0036_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated shelter scene for linkage testing,unreviewed
+EVIDENCE-0047,CASE-0037,image,data/raw/images/synthetic/demo_case_evidence/CASE-0037_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated road scene for linkage testing,unreviewed
+EVIDENCE-0048,CASE-0038,image,data/raw/images/synthetic/demo_case_evidence/CASE-0038_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated water-damage scene for linkage testing,unreviewed
+EVIDENCE-0049,CASE-0039,image,data/raw/images/synthetic/demo_case_evidence/CASE-0039_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated assistance scene for linkage testing,unreviewed
+EVIDENCE-0050,CASE-0040,image,data/raw/images/synthetic/demo_case_evidence/CASE-0040_damage_scene.svg,synthetic_demo,2026-09-09,Synthetic illustrated scene for linkage testing,unreviewed
