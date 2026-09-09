@@ -196,3 +196,14 @@ python scripts/data/validate_data.py
 ```
 
 Generation uses a fixed seed and produces the same data each time. The validation script checks the generated data relationships and constraints.
+
+## 11. Consolidated Directory Notes
+
+The following directory-level notes were folded into this summary and are no longer kept as standalone files:
+
+- `data/raw/documents/rag/README.md` — documents the trusted humanitarian knowledge corpus. It states that the current corpus is intentionally limited to one verified IFRC document and that future AI outputs must remain human-reviewed decision-support signals rather than eligibility decisions.
+- `data/raw/documents/case_evidence/README.md` — describes the synthetic case-evidence workspace. It explains that the folder is reserved for demo or future user-uploaded case evidence, that no real personal data should be placed there, and that the current demo includes 40 synthetic image files and 10 supporting notes across 40 cases.
+- `data/external/README.md` — explains the external Kaggle Disaster Images dataset and its purpose as a separate computer-vision reference resource rather than internal case data or RAG knowledge.
+- `data/external/disaster_images/README.md` — summarizes the dataset contents, metadata, corruption tracking, and boundaries. It notes the dataset is approximately 659 MB, contains 13,557 PNGs across six classes, and is kept separate from CareHaven case evidence and trusted knowledge.
+
+These directory summaries are intentionally redundant with the main project data architecture and provenance notes already listed above.
