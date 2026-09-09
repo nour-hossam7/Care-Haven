@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import TYPE_CHECKING, Any
 
-from sqlalchemy import DateTime, Integer, JSON, Text
+from sqlalchemy import DateTime, ForeignKey, Integer, JSON, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from backend.core.database import Base
@@ -13,6 +13,7 @@ if TYPE_CHECKING:
     from .case_image import CaseEvidence
     from .donation import Donation
     from .flag import Flag
+    from .user import User
 
 
 class Case(Base):
@@ -36,7 +37,24 @@ class Case(Base):
     status: Mapped[str | None] = mapped_column(Text)
     priority: Mapped[str | None] = mapped_column(Text)
 
-    donations: Mapped[list[Donation]] = relationship(back_populates="case")
-    evidence: Mapped[list[CaseEvidence]] = relationship(back_populates="case")
-    analyses: Mapped[list[AIAnalysis]] = relationship(back_populates="case")
-    flags: Mapped[list[Flag]] = relationship(back_populates="case")
+    created_by: Mapped[str | None] = mapped_column(
+        ForeignKey("users.user_id", ondelete="SET NULL"),
+        nullable=True,
+    )
+
+    creator: Mapped[User | None] = relationship(
+        back_populates="cases",
+    )
+
+    donations: Mapped[list[Donation]] = relationship(
+        back_populates="case",
+    )
+    evidence: Mapped[list[CaseEvidence]] = relationship(
+        back_populates="case",
+    )
+    analyses: Mapped[list[AIAnalysis]] = relationship(
+        back_populates="case",
+    )
+    flags: Mapped[list[Flag]] = relationship(
+        back_populates="case",
+    )
