@@ -1,0 +1,10 @@
+fastapi
+sqlalchemy
+psycopg2-binary
+pydantic-settings
+pytest
+requests
+chromadb
+sentence-transformers
+pypdf
+scikit-learn

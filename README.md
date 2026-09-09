@@ -14,6 +14,7 @@ The core humanitarian intelligence lifecycle is:
 Understand → Verify → Prioritize → Match → Support → Track → Predict
 ```
 
+
 ---
 
 ## Table of Contents
