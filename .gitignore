@@ -4,6 +4,9 @@ __pycache__/
 .pytest_cache/
 .venv/
 venv/
+.env
+.env.*
+!.env.example
 
 # Temporary and generated model artifacts
 *.tmp
@@ -16,6 +19,8 @@ checkpoints/
 *.joblib
 *.h5
 *.onnx
+!backend/models/
+!backend/models/*.py
 
 # Keep the small, versioned synthetic CSV datasets in data/raw.
 
@@ -24,3 +29,6 @@ checkpoints/
 !/data/external/disaster_images/README.md
 !/data/external/disaster_images/metadata.csv
 !/data/external/disaster_images/corrupted_images.csv
+
+# Persistent local vector-store artifacts are generated and not source-controlled.
+/data/rag_documents/chroma/
