@@ -107,6 +107,24 @@ class ChromaVectorStore:
 		except Exception as exc:
 			raise VectorStoreError(f"Could not count RAG chunks: {exc}") from exc
 
+	def get_chunks(self) -> list[dict[str, Any]]:
+		"""Return indexed documents and metadata for local lexical retrieval."""
+
+		if not hasattr(self.collection, "get"):
+			return []
+		try:
+			result = self.collection.get(include=["documents", "metadatas"])
+		except Exception as exc:
+			raise VectorStoreError(f"Could not read RAG chunks: {exc}") from exc
+		ids = result.get("ids") or []
+		documents = result.get("documents") or []
+		metadatas = result.get("metadatas") or []
+		return [
+			{"chunk_id": str(chunk_id), "text": str(documents[index]), "metadata": dict(metadatas[index] or {})}
+			for index, chunk_id in enumerate(ids)
+			if index < len(documents)
+		]
+
 	def reset(self) -> None:
 		"""Delete and recreate this collection explicitly."""
 
