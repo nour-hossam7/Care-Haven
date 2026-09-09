@@ -55,8 +55,8 @@ def test_existing_table_mappings_preserve_names_and_json_types() -> None:
 
 def test_relationships_are_configured() -> None:
 	configure_mappers()
-	assert set(Donation.__mapper__.relationships.keys()) == {"case", "donor"}
-	assert set(Case.__mapper__.relationships.keys()) == {"donations", "evidence", "analyses", "flags"}
+	assert set(Donation.__mapper__.relationships.keys()) == {"case", "donor", "user"}
+	assert set(Case.__mapper__.relationships.keys()) == {"donations", "evidence", "analyses", "flags", "creator"}
 	assert set(Donor.__mapper__.relationships.keys()) == {"donations"}
 	assert set(CaseEvidence.__mapper__.relationships.keys()) == {"case"}
 
