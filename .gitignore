@@ -24,3 +24,5 @@ checkpoints/
 !/data/external/disaster_images/README.md
 !/data/external/disaster_images/metadata.csv
 !/data/external/disaster_images/corrupted_images.csv
+
+data/rag_documents/chroma/
