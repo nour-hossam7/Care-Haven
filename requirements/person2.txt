@@ -1,0 +1,6 @@
+# Person 2 RAG dependencies
+chromadb
+sentence-transformers
+pypdf
+requests
+scikit-learn

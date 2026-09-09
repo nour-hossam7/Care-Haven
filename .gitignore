@@ -17,6 +17,9 @@ checkpoints/
 *.h5
 *.onnx
 
+# Generated persistent RAG vector-store data
+/data/rag_documents/chroma/
+
 # Keep the small, versioned synthetic CSV datasets in data/raw.
 
 # Large external Computer Vision dataset files; retain its documentation and manifest.
