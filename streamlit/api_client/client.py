@@ -33,12 +33,20 @@ class ApiClient:
                 except (json.JSONDecodeError, UnicodeDecodeError) as exc:
                     raise ApiError("The CareHaven backend returned an invalid response.") from exc
         except HTTPError as exc:
-            try: detail = json.loads(exc.read()).get("detail", exc.reason)
-            except (ValueError, AttributeError): detail = exc.reason
-            raise ApiError(f"Request failed ({exc.code}): {detail}") from exc
-        except URLError as exc:
+            messages = {
+                400: "The request could not be processed.",
+                401: "Your session is invalid or expired. Please sign in again.",
+                403: "You do not have permission to perform this action.",
+                404: "The requested resource was not found.",
+                409: "This conflicts with existing data.",
+                422: "Please check the submitted information.",
+                500: "The CareHaven backend encountered an error. Please try again later.",
+            }
+            raise ApiError(messages.get(exc.code, "The request could not be completed.")) from exc
+        except (URLError, TimeoutError, OSError) as exc:
             raise ApiError("The CareHaven backend is unavailable. Please try again later.") from exc
     def get(self, path: str) -> Any: return self.request("GET", path)
     def post(self, path: str, payload: Any | None = None) -> Any: return self.request("POST", path, payload)
     def put(self, path: str, payload: Any | None = None) -> Any: return self.request("PUT", path, payload)
     def delete(self, path: str) -> Any: return self.request("DELETE", path)
+    def patch(self, path: str, payload: Any | None = None) -> Any: return self.request("PATCH", path, payload)

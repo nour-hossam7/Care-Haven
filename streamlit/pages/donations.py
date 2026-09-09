@@ -1,13 +1,14 @@
 from __future__ import annotations
 import streamlit as st
 from streamlit.api_client.client import ApiClient, ApiError
-from streamlit.api_client.donations import create_donation, list_donations
+from streamlit.api_client.donations import create_donation, my_donation_history
 from streamlit.components.navbar import render_navbar
 def render() -> None:
     render_navbar("Donations")
     client = ApiClient(token=st.session_state.get("token"))
     try:
-        donations = list_donations(client); st.dataframe(donations, use_container_width=True)
+        response = my_donation_history(client)
+        st.dataframe(response.get("items", []), use_container_width=True)
     except ApiError as exc: st.error(str(exc))
     with st.form("donation"):
         case_id, amount = st.text_input("Case ID"), st.number_input("Amount", min_value=0.01)

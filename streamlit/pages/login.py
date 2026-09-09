@@ -14,6 +14,7 @@ def render() -> bool:
             result = login(ApiClient(), email, password)
             token = result.get("access_token") or result.get("token")
             if not token: raise ApiError("The login response did not include an access token.")
+            if str(result.get("token_type", "bearer")).lower() != "bearer": raise ApiError("The login response used an unsupported token type.")
             st.session_state.update(authenticated=True, token=token, user=result.get("user", {}))
             st.rerun()
         except ApiError as exc: st.error(str(exc))
