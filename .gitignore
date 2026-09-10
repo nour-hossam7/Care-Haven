@@ -33,3 +33,6 @@ checkpoints/
 # Persistent local vector-store artifacts are generated and not source-controlled.
 /data/rag_documents/chroma/
 >>>>>>> 4f4a4a07fad0254f89d0f1e6ac3024e7f1b49ff1
+
+# User-uploaded case evidence; keep local and out of source control.
+/data/raw/images/uploads/
