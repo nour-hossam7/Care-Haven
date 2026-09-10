@@ -29,10 +29,12 @@ def load_image(source: ImageSource) -> Image.Image:
             with Image.open(path) as opened:
                 opened.verify()
             image = Image.open(path)
-        elif isinstance(source, bytes):
+        elif isinstance(source, (bytes, bytearray)):
             image = Image.open(BytesIO(source))
-        else:
+        elif hasattr(source, "read"):
             image = Image.open(source)
+        else:
+            raise ImageLoadError("Unsupported image source type.")
         image.load()
         if image.format and image.format.upper() not in SUPPORTED_FORMATS:
             raise ImageLoadError("Unsupported image format. Use JPG, PNG, or WEBP.")
@@ -44,7 +46,7 @@ def load_image(source: ImageSource) -> Image.Image:
         return rgb
     except ImageLoadError:
         raise
-    except (OSError, UnidentifiedImageError, ValueError) as exc:
+    except (OSError, UnidentifiedImageError, ValueError, TypeError, AttributeError) as exc:
         raise ImageLoadError("The uploaded file is not a readable image.") from exc
 
 
