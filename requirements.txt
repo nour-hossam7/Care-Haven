@@ -1,8 +1,12 @@
 # Backend and Person 2 dependencies
 fastapi
+uvicorn
 sqlalchemy
 psycopg2-binary
 pydantic-settings
+python-jose[cryptography]
+pwdlib
+email-validator
 pytest
 requests
 chromadb

@@ -1,5 +1,7 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
+from backend.core.config import settings
 from backend.routers.auth import router as auth_router
 from backend.routers.ai import router as ai_router
 from backend.routers.cases import router as cases_router
@@ -11,6 +13,19 @@ app = FastAPI(
     title="Care-Haven API",
     version="1.0.0",
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.cors_origin_list(),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get("/health")
+def health() -> dict[str, str]:
+    return {"status": "ok"}
 
 
 app.include_router(auth_router)
