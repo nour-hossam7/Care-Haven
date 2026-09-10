@@ -1,9 +1,9 @@
 from __future__ import annotations
 import streamlit as st
 from ai.vision.quality import assess_image_quality
-from streamlit.api_client.cases import create_case, upload_evidence
-from streamlit.api_client.client import ApiClient, ApiError
-from streamlit.components.navbar import render_navbar
+from carehaven_ui.api_client.cases import create_case, upload_evidence
+from carehaven_ui.api_client.client import ApiClient, ApiError
+from carehaven_ui.components.navbar import render_navbar
 def render() -> None:
     render_navbar("Submit a case")
     with st.form("submit-case"):

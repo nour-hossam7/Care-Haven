@@ -1,3 +1,4 @@
+# Backend and Person 2 dependencies
 fastapi
 sqlalchemy
 psycopg2-binary
@@ -8,5 +9,11 @@ chromadb
 sentence-transformers
 pypdf
 scikit-learn
-
 python-multipart
+
+# Streamlit frontend and imported vision functionality
+streamlit>=1.40
+Pillow>=10.0
+numpy>=1.24
+# Optional at runtime: required only to run real YOLO inference, not unit tests.
+ultralytics>=8.3

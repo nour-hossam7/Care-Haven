@@ -1,8 +1,8 @@
 from __future__ import annotations
 import streamlit as st
-from streamlit.api_client.chat import ask
-from streamlit.api_client.client import ApiClient, ApiError
-from streamlit.components.navbar import render_navbar
+from carehaven_ui.api_client.chat import ask
+from carehaven_ui.api_client.client import ApiClient, ApiError
+from carehaven_ui.components.navbar import render_navbar
 def render() -> None:
     render_navbar("AI Assistant")
     for message in st.session_state.setdefault("chat_messages", []):

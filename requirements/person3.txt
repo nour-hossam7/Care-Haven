@@ -1,8 +1,0 @@
-# Person 3: Streamlit interface and local image analysis.
-streamlit>=1.40
-Pillow>=10.0
-numpy>=1.24
-# Optional at runtime: required only to run real YOLO inference, not unit tests.
-ultralytics>=8.3
-# Required to run the Person 3 vision test suite.
-pytest>=8.0

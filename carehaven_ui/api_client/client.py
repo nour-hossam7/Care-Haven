@@ -7,7 +7,7 @@ from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
-from streamlit.config import settings
+from carehaven_ui.config import settings
 
 
 class ApiError(RuntimeError):

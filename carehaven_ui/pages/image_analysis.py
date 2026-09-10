@@ -4,7 +4,7 @@ import streamlit as st
 from ai.vision.quality import assess_image_quality
 from ai.vision.similarity import compare_images
 from ai.vision.yolo import YoloDetector, visualize_detections
-from streamlit.components.navbar import render_navbar
+from carehaven_ui.components.navbar import render_navbar
 def render() -> None:
     render_navbar("Image Analysis")
     image = st.file_uploader("Upload image", type=["jpg", "jpeg", "png", "webp"])

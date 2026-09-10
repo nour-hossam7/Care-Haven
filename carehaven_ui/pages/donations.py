@@ -1,8 +1,8 @@
 from __future__ import annotations
 import streamlit as st
-from streamlit.api_client.client import ApiClient, ApiError
-from streamlit.api_client.donations import create_donation, my_donation_history
-from streamlit.components.navbar import render_navbar
+from carehaven_ui.api_client.client import ApiClient, ApiError
+from carehaven_ui.api_client.donations import create_donation, my_donation_history
+from carehaven_ui.components.navbar import render_navbar
 def render() -> None:
     render_navbar("Donations")
     client = ApiClient(token=st.session_state.get("token"))

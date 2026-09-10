@@ -1,7 +1,7 @@
 from __future__ import annotations
 import streamlit as st
-from streamlit.api_client.auth import login
-from streamlit.api_client.client import ApiClient, ApiError
+from carehaven_ui.api_client.auth import login
+from carehaven_ui.api_client.client import ApiClient, ApiError
 def render() -> bool:
     st.title("Care-Haven")
     st.caption("Sign in to access humanitarian cases and tools.")

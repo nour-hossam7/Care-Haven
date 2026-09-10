@@ -1,9 +1,9 @@
 """CareHaven Streamlit application entry point."""
 from __future__ import annotations
 import streamlit as st
-from streamlit.config import settings
-from streamlit.components.sidebar import choose_page
-from streamlit.pages import ai_assistant, case_details, cases, dashboard, donations, image_analysis, login, map as map_page, recommendations, review_queue, submit_case
+from carehaven_ui.config import settings
+from carehaven_ui.components.sidebar import choose_page
+from carehaven_ui.pages import ai_assistant, case_details, cases, dashboard, donations, image_analysis, login, map as map_page, recommendations, review_queue, submit_case
 
 ROUTES = {"Dashboard": dashboard, "Cases": cases, "Submit Case": submit_case, "Donations": donations, "Recommendations": recommendations, "AI Assistant": ai_assistant, "Image Analysis": image_analysis, "Review Queue": review_queue, "Map": map_page}
 

@@ -6,12 +6,12 @@ from urllib.error import HTTPError
 
 import pytest
 
-from streamlit.api_client.cases import (
+from carehaven_ui.api_client.cases import (
     list_review_queue,
     update_evidence_verification,
     upload_evidence,
 )
-from streamlit.api_client.client import ApiClient, ApiError
+from carehaven_ui.api_client.client import ApiClient, ApiError
 
 
 class FakeResponse:
@@ -36,7 +36,7 @@ def test_evidence_upload_uses_multipart_and_preserves_auth(monkeypatch):
         captured["timeout"] = timeout
         return FakeResponse({"evidence_id": "EVIDENCE-1"})
 
-    monkeypatch.setattr("streamlit.api_client.client.urlopen", fake_urlopen)
+    monkeypatch.setattr("carehaven_ui.api_client.client.urlopen", fake_urlopen)
     result = upload_evidence(
         ApiClient(base_url="http://api.test", token="token-1"), "CASE-1",
         ("photo.png", b"image-bytes", "image/png"), "Flood damage",
@@ -59,7 +59,7 @@ def test_upload_http_errors_become_safe_api_errors(monkeypatch, code):
     def fake_urlopen(request, timeout):
         raise HTTPError(request.full_url, code, "error", {}, BytesIO(b"{}"))
 
-    monkeypatch.setattr("streamlit.api_client.client.urlopen", fake_urlopen)
+    monkeypatch.setattr("carehaven_ui.api_client.client.urlopen", fake_urlopen)
     with pytest.raises(ApiError):
         upload_evidence(
             ApiClient(base_url="http://api.test"), "CASE-1",
@@ -74,7 +74,7 @@ def test_json_requests_remain_json(monkeypatch):
         captured["request"] = request
         return FakeResponse({"ok": True})
 
-    monkeypatch.setattr("streamlit.api_client.client.urlopen", fake_urlopen)
+    monkeypatch.setattr("carehaven_ui.api_client.client.urlopen", fake_urlopen)
     assert ApiClient(base_url="http://api.test").post("/cases", {"country": "Egypt"}) == {"ok": True}
     assert captured["request"].get_header("Content-type") == "application/json"
     assert json.loads(captured["request"].data) == {"country": "Egypt"}
