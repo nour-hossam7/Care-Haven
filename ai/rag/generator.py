@@ -12,6 +12,7 @@ import requests
 from .chunking import TextChunk, chunk_pages
 from .embeddings import SentenceTransformerEmbeddings
 from .ingestion import DocumentIngestor
+from .hybrid import BM25Retriever, HybridRetriever
 from .retriever import RetrievedChunk, Retriever
 from .vector_store import ChromaVectorStore
 
@@ -128,8 +129,27 @@ class RAGPipeline:
 		self.retriever = Retriever(
 			self.vector_store, self.embedder, top_k=top_k, score_threshold=score_threshold,
 		)
+		self._refresh_hybrid_retriever()
 		self.generator = generator or OllamaGenerator()
 		self.max_context_characters = max_context_characters
+
+	def _refresh_hybrid_retriever(self) -> None:
+		stored_chunks = self.vector_store.get_chunks()
+		self.hybrid_retriever = HybridRetriever(
+			self.retriever,
+			BM25Retriever(
+				RetrievedChunk(
+					chunk_id=item["chunk_id"],
+					text=item["text"],
+					source=item["metadata"].get("source"),
+					document_name=item["metadata"].get("document_name"),
+					page=item["metadata"].get("page"),
+					distance=0.0,
+					metadata=item["metadata"],
+				)
+				for item in stored_chunks
+			),
+		)
 
 	def build_index(self, *, strict: bool = True, chunk_size: int = 1200, overlap: int = 150) -> dict[str, int]:
 		"""Ingest, chunk, embed, and upsert all trusted RAG documents."""
@@ -139,6 +159,7 @@ class RAGPipeline:
 		chunks: list[TextChunk] = chunk_pages(pages, chunk_size=chunk_size, overlap=overlap)
 		embeddings = self.embedder.encode_documents([chunk.text for chunk in chunks])
 		indexed = self.vector_store.upsert(chunks, embeddings)
+		self._refresh_hybrid_retriever()
 		stats = {
 			"documents_discovered": len(paths),
 			"pages_extracted": len(pages),
@@ -154,10 +175,31 @@ class RAGPipeline:
 
 		return self.retriever.retrieve(question, top_k=top_k)
 
+	def hybrid_retrieve(self, question: str, *, top_k: int | None = None) -> list[RetrievedChunk]:
+		"""Retrieve with semantic and local lexical signals fused by RRF."""
+
+		return self.hybrid_retriever.retrieve(question, top_k=top_k or self.retriever.top_k)
+
 	def ask(self, question: str) -> RAGResponse:
 		"""Retrieve evidence, build context, and generate a grounded answer."""
 
 		chunks = self.retrieve(question)
+		context = self.retriever.build_context(chunks, max_characters=self.max_context_characters)
+		sources = [
+			{"document": chunk.document_name, "page": chunk.page, "source": chunk.source, "chunk_id": chunk.chunk_id}
+			for chunk in chunks
+		]
+		result = self.generator.generate(question, chunks)
+		if isinstance(result, GenerationResult):
+			return RAGResponse(
+				answer=result.answer, sources=sources, retrieved_chunks=chunks, context=context, error=result.error,
+			)
+		return RAGResponse(answer=result, sources=sources, retrieved_chunks=chunks, context=context)
+
+	def ask_hybrid(self, question: str, *, top_k: int | None = None) -> RAGResponse:
+		"""Fuse semantic and lexical evidence before grounded generation."""
+
+		chunks = self.hybrid_retrieve(question, top_k=top_k)
 		context = self.retriever.build_context(chunks, max_characters=self.max_context_characters)
 		sources = [
 			{"document": chunk.document_name, "page": chunk.page, "source": chunk.source, "chunk_id": chunk.chunk_id}

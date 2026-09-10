@@ -22,17 +22,16 @@ checkpoints/
 !backend/models/
 !backend/models/*.py
 
+# Generated persistent RAG vector-store data
+/data/rag_documents/chroma/
+
 # Keep the small, versioned synthetic CSV datasets in data/raw.
 
-# Large external Computer Vision dataset files; retain its documentation and manifest.
+# Large external Computer Vision dataset files; retain the dataset documentation and manifest.
 /data/external/disaster_images/*
 !/data/external/disaster_images/README.md
 !/data/external/disaster_images/metadata.csv
 !/data/external/disaster_images/corrupted_images.csv
-=======
-# Persistent local vector-store artifacts are generated and not source-controlled.
-/data/rag_documents/chroma/
->>>>>>> 4f4a4a07fad0254f89d0f1e6ac3024e7f1b49ff1
 
 # User-uploaded case evidence; keep local and out of source control.
 /data/raw/images/uploads/
