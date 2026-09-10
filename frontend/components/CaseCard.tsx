@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Card } from "@/components/Card";
+import { EvidenceImage } from "@/components/EvidenceImage";
 import { FundingProgress } from "@/components/FundingProgress";
 import { PriorityBadge } from "@/components/PriorityBadge";
 import { StatusBadge } from "@/components/StatusBadge";
@@ -13,12 +14,21 @@ function isRecommendation(item: Case | RecommendationCase): item is Recommendati
 export function CaseCard({
   item,
   href,
+  evidenceImageUrl,
 }: {
   item: Case | RecommendationCase;
   href?: string;
+  evidenceImageUrl?: string | null;
 }) {
   const content = (
     <Card className="h-full transition hover:border-brand-700/40">
+      {evidenceImageUrl ? (
+        <EvidenceImage
+          imageUrl={evidenceImageUrl}
+          alt={`Evidence for ${item.case_id}`}
+          className="mb-4 max-h-40 w-full rounded-xl object-contain"
+        />
+      ) : null}
       <div className="flex flex-wrap items-start justify-between gap-2">
         <p className="font-mono text-sm font-semibold text-slate-900">{item.case_id}</p>
         <div className="flex flex-wrap gap-2">

@@ -8,6 +8,7 @@ import { EmptyState, ErrorState } from "@/components/EmptyState";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { api, ApiError, NETWORK_ERROR_MESSAGE } from "@/lib/api";
 import { formatMoney } from "@/lib/format";
+import { useCaseEvidence } from "@/hooks/useCaseEvidence";
 import type { Case } from "@/types";
 
 interface Metrics {
@@ -22,6 +23,7 @@ export default function DashboardPage() {
   const [recent, setRecent] = useState<Case[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const evidenceByCase = useCaseEvidence(recent.map((item) => item.case_id));
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -88,7 +90,12 @@ export default function DashboardPage() {
           ) : (
             <div className="grid gap-4 lg:grid-cols-2">
               {recent.map((item) => (
-                <CaseCard key={item.case_id} item={item} href={`/cases/${item.case_id}`} />
+                <CaseCard
+                  key={item.case_id}
+                  item={item}
+                  href={`/cases/${item.case_id}`}
+                  evidenceImageUrl={evidenceByCase[item.case_id]?.find((evidence) => evidence.image_url)?.image_url}
+                />
               ))}
             </div>
           )}

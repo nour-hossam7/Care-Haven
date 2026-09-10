@@ -16,6 +16,7 @@ from backend.models.case_image import CaseEvidence
 
 
 UPLOAD_DIR = Path("data/raw/images/uploads")
+EVIDENCE_IMAGE_ROOT = Path("data/raw/images").resolve()
 ALLOWED_CONTENT_TYPES = {
     "image/jpeg": ".jpg",
     "image/png": ".png",
@@ -23,6 +24,35 @@ ALLOWED_CONTENT_TYPES = {
 }
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 MB
 REVIEWABLE_STATUSES = {"unreviewed", "approved", "rejected"}
+IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp", ".svg"}
+
+
+def resolve_evidence_file(file_path: str | None) -> Path | None:
+    if not file_path:
+        return None
+
+    candidate = Path(file_path).resolve()
+    try:
+        candidate.relative_to(EVIDENCE_IMAGE_ROOT)
+    except ValueError:
+        return None
+    return candidate
+
+
+def is_image_evidence(evidence: CaseEvidence) -> bool:
+    return (
+        evidence.evidence_type == "image"
+        and Path(evidence.file_path or "").suffix.lower() in IMAGE_SUFFIXES
+    )
+
+
+def list_case_evidence(db: Session, case_id: str) -> list[CaseEvidence]:
+    query = (
+        select(CaseEvidence)
+        .where(CaseEvidence.case_id == case_id)
+        .order_by(CaseEvidence.uploaded_at, CaseEvidence.evidence_id)
+    )
+    return list(db.scalars(query).all())
 
 
 def upload_case_evidence(

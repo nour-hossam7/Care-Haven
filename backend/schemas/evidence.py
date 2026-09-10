@@ -23,6 +23,11 @@ class EvidenceResponse(BaseModel):
     verification_status: str | None
 
 
+class CaseEvidenceResponse(EvidenceResponse):
+    file_path: None = None
+    image_url: str | None = None
+
+
 class EvidenceVerificationUpdate(BaseModel):
     verification_status: VerificationStatus
 

@@ -1,6 +1,7 @@
 import { clearToken, getStoredToken } from "@/lib/auth";
 import type {
   Case,
+  CaseEvidence,
   CaseCreate,
   CaseListParams,
   CaseListResponse,
@@ -151,6 +152,22 @@ export const api = {
     ),
 
   me: () => apiRequest<User>("/auth/me"),
+
+  caseEvidence: (caseId: string) =>
+    apiRequest<CaseEvidence[]>(
+      `/cases/${encodeURIComponent(caseId)}/evidence`,
+    ),
+
+  evidenceImage: async (imageUrl: string): Promise<Blob> => {
+    const headers = new Headers({ Accept: "image/*" });
+    const token = getStoredToken();
+    if (token) headers.set("Authorization", `Bearer ${token}`);
+    const response = await fetch(imageUrl, { headers });
+    if (!response.ok) {
+      throw new ApiError(humanMessage(response.status, null), response.status);
+    }
+    return response.blob();
+  },
 
   listCases: (params: CaseListParams = {}) =>
     apiRequest<CaseListResponse>(

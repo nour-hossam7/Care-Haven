@@ -4,14 +4,11 @@ import { FormEvent, useRef, useState } from "react";
 import { Button } from "@/components/Button";
 import { ChatMessage } from "@/components/ChatMessage";
 import { ErrorState } from "@/components/ErrorState";
-import { SourceCard } from "@/components/SourceCard";
 import { api, ApiError, NETWORK_ERROR_MESSAGE } from "@/lib/api";
-import type { ChatSource } from "@/types";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
-  sources?: ChatSource[];
 }
 
 export default function AssistantPage() {
@@ -36,7 +33,6 @@ export default function AssistantPage() {
         {
           role: "assistant",
           content: response.answer,
-          sources: response.sources ?? [],
         },
       ]);
     } catch (err) {
@@ -71,18 +67,6 @@ export default function AssistantPage() {
         {messages.map((message, index) => (
           <div key={`${message.role}-${index}`} className="space-y-3">
             <ChatMessage role={message.role} content={message.content} />
-            {message.sources && message.sources.length > 0 ? (
-              <div className="ml-1 space-y-2">
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Sources
-                </p>
-                <div className="grid gap-2 sm:grid-cols-2">
-                  {message.sources.map((source) => (
-                    <SourceCard key={source.chunk_id} source={source} />
-                  ))}
-                </div>
-              </div>
-            ) : null}
           </div>
         ))}
         {loading ? (

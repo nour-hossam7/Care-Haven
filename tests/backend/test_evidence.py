@@ -278,3 +278,45 @@ def test_review_queue_rejects_normal_user(monkeypatch):
         assert TestClient(app).get("/cases/evidence/review-queue").status_code == 403
     finally:
         app.dependency_overrides.clear()
+
+
+def test_case_evidence_returns_safe_image_url_without_file_path(monkeypatch, tmp_path):
+    from fastapi.testclient import TestClient
+    from backend.core.database import get_db
+    from backend.core.security import get_current_user
+    from backend.main import app
+    from backend.routers import evidence as evidence_router
+    from backend.services import evidence_service
+
+    image = tmp_path / "CASE-TEST" / "evidence.svg"
+    image.parent.mkdir()
+    image.write_text("<svg xmlns='http://www.w3.org/2000/svg'></svg>")
+    monkeypatch.setattr(evidence_router, "EVIDENCE_IMAGE_ROOT", tmp_path)
+    monkeypatch.setattr(evidence_service, "EVIDENCE_IMAGE_ROOT", tmp_path)
+    evidence = SimpleNamespace(
+        evidence_id="EVIDENCE-TEST",
+        case_id="CASE-TEST",
+        evidence_type="image",
+        file_path=str(image),
+        source_type="synthetic_demo",
+        uploaded_at=None,
+        description="Test image",
+        verification_status="unreviewed",
+    )
+
+    class FakeSession:
+        def scalars(self, query):
+            return SimpleNamespace(all=lambda: [evidence])
+
+    app.dependency_overrides[get_current_user] = lambda: SimpleNamespace(user_id="USER-1")
+    app.dependency_overrides[get_db] = lambda: FakeSession()
+    try:
+        client = TestClient(app)
+        response = client.get("/cases/CASE-TEST/evidence")
+        assert response.status_code == 200
+        payload = response.json()[0]
+        assert payload["file_path"] is None
+        assert payload["image_url"].endswith("/cases/evidence/files/CASE-TEST/evidence.svg")
+        assert client.get("/cases/evidence/files/../backend/main.py").status_code == 404
+    finally:
+        app.dependency_overrides.clear()

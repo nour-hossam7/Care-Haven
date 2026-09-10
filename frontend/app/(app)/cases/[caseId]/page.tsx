@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { ErrorState } from "@/components/ErrorState";
+import { EvidenceImage } from "@/components/EvidenceImage";
 import { FundingProgress } from "@/components/FundingProgress";
 import { Input } from "@/components/Input";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
@@ -15,7 +16,7 @@ import { StatusBadge } from "@/components/StatusBadge";
 import { useAuth } from "@/hooks/useAuth";
 import { api, ApiError, NETWORK_ERROR_MESSAGE } from "@/lib/api";
 import { formatDate, formatMoney, locationLabel } from "@/lib/format";
-import type { Case, CaseStatus, Donation, HybridAnalysisResponse } from "@/types";
+import type { Case, CaseEvidence, CaseStatus, Donation, HybridAnalysisResponse } from "@/types";
 
 const STATUSES: CaseStatus[] = ["Active", "Under Review", "Funded", "Completed"];
 
@@ -25,6 +26,7 @@ export default function CaseDetailsPage() {
   const { user } = useAuth();
   const [item, setItem] = useState<Case | null>(null);
   const [donations, setDonations] = useState<Donation[]>([]);
+  const [evidence, setEvidence] = useState<CaseEvidence[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [donateOpen, setDonateOpen] = useState(false);
@@ -41,13 +43,18 @@ export default function CaseDetailsPage() {
     setLoading(true);
     setError(null);
     try {
-      const [caseItem, caseDonations] = await Promise.all([
+      const [caseItem, caseDonations, caseEvidence] = await Promise.all([
         api.getCase(caseId),
         api.caseDonations(caseId, 1, 20),
+        api
+          .caseEvidence(caseId)
+          .then((items) => items.filter((item) => item.case_id === caseId))
+          .catch(() => []),
       ]);
       setItem(caseItem);
       setStatus((caseItem.status as CaseStatus) || "Under Review");
       setDonations(caseDonations.items);
+      setEvidence(caseEvidence);
     } catch (err) {
       setError(err instanceof ApiError ? err.message : NETWORK_ERROR_MESSAGE);
       setItem(null);
@@ -195,6 +202,24 @@ export default function CaseDetailsPage() {
               }}
             />
           </label>
+        </Card>
+      ) : null}
+
+      {evidence.some((item) => item.image_url) ? (
+        <Card>
+          <h2 className="font-semibold">Case evidence</h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {evidence
+              .filter((item) => item.image_url)
+              .map((item) => (
+                <EvidenceImage
+                  key={item.evidence_id}
+                  imageUrl={item.image_url!}
+                  alt={item.description || `Evidence ${item.evidence_id} for ${item.case_id}`}
+                  className="max-h-96 w-full rounded-xl object-contain"
+                />
+              ))}
+          </div>
         </Card>
       ) : null}
 

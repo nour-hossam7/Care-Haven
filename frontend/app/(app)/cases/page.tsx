@@ -8,6 +8,7 @@ import { Input } from "@/components/Input";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { Select } from "@/components/Select";
 import { api, ApiError, NETWORK_ERROR_MESSAGE } from "@/lib/api";
+import { useCaseEvidence } from "@/hooks/useCaseEvidence";
 import type { Case, CaseListParams } from "@/types";
 
 const LEVELS = ["Low", "Medium", "High", "Critical"];
@@ -59,6 +60,7 @@ export default function CasesPage() {
       .filter(Boolean)
       .some((value) => String(value).toLowerCase().includes(q));
   });
+  const evidenceByCase = useCaseEvidence(visible.map((item) => item.case_id));
 
   return (
     <div className="space-y-6">
@@ -134,7 +136,12 @@ export default function CasesPage() {
       ) : null}
       <div className="grid gap-4 lg:grid-cols-2">
         {visible.map((item) => (
-          <CaseCard key={item.case_id} item={item} href={`/cases/${item.case_id}`} />
+          <CaseCard
+            key={item.case_id}
+            item={item}
+            href={`/cases/${item.case_id}`}
+            evidenceImageUrl={evidenceByCase[item.case_id]?.find((evidence) => evidence.image_url)?.image_url}
+          />
         ))}
       </div>
       {!loading && !error && total > 0 ? (

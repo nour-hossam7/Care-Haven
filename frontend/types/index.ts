@@ -112,6 +112,10 @@ export interface Evidence {
   verification_status: string | null;
 }
 
+export interface CaseEvidence extends Evidence {
+  image_url: string | null;
+}
+
 export type EvidenceListResponse = Paginated<Evidence>;
 
 export interface CaseListParams {
