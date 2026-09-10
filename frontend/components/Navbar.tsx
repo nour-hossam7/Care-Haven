@@ -10,7 +10,6 @@ export const NAV_ITEMS = [
   { href: "/cases", label: "Cases" },
   { href: "/cases/new", label: "Submit case" },
   { href: "/donations", label: "Donations" },
-  { href: "/recommendations", label: "Recommendations" },
   { href: "/assistant", label: "AI assistant" },
 ];
 
