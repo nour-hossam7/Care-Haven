@@ -8,7 +8,10 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OLLAMA_MODEL: str = "qwen3:4b"
-    CORS_ORIGINS: str = "http://localhost:8501,http://127.0.0.1:8501"
+    CORS_ORIGINS: str = (
+        "http://localhost:3000,http://127.0.0.1:3000,"
+        "http://localhost:8501,http://127.0.0.1:8501"
+    )
 
     model_config = SettingsConfigDict(
         env_file=".env",
